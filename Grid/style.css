@@ -136,6 +136,19 @@ body {
     grid-column: 1/5;
     /* When writing for row, 3 and 4th grid shift up instead of below 2, because, by default grid is calculating implicitly where is the space and put there which we don't explicitly tell it do */
     grid-row: 3/4;
+    /* we can use span also when column starts at 3 and we want only 1 box means we have to write grid-column-end:4
+    SO, instead of writing this, we can write  
+    grid-column-end:span 1;
+    */
 }
 
 /* https://cssgridgarden.com/ */
+
+/* 
+If typing out both grid-column and grid-row is too much for you, there's yet another shorthand for that. grid-area accepts four values separated by slashes: grid-row-start, grid-column-start, grid-row-end, followed by grid-column-end.
+One example of this would be grid-area: 1 / 1 / 3 / 6;.
+ */
+/* 
+ If grid items aren't explicitly placed with grid-area, grid-column, grid-row, etc., they are automatically placed according to their order in the source code. We can override this using the order property, which is one of the advantages of grid over table-based layout.
+By default, all grid items have an order of 0, but this can be set to any positive or negative value, similar to z-index. 
+*/
