@@ -1,0 +1,173 @@
+body {
+    font-size: 2rem;
+    padding: 10%;
+
+}
+
+/* LINK STYLING LECTURE  */
+
+a {
+    text-decoration: underline;
+    /* when points to the link cursor will points to it by default. We can make to none to not change its shape to pointed and so on */
+    cursor: pointer;
+    /* No allowed Symbols appears */
+    /* 
+    cursor: not-allowed; 
+    */
+}
+
+/* Visited, hover, active are pseudo class for "a" and have more specificity than "a" */
+
+/* .When link is visited change its colour */
+/* Given Below is the correct order to write all three, DONT MESS UP WITH THE ORDER */
+a:visited {
+    color: brown;
+}
+
+/* FOCUS is also there in which there will be a box around a link */
+a:hover {
+    /* background-color: aqua; */
+    color: darkblue;
+}
+
+/* when you click on it this colour shows when your click button is active */
+a:active {
+    color: black;
+}
+
+/* LIST STYLING LECTURE */
+
+ol {
+    /* We can use only list-style also which include type position and image */
+    /* This will change the numbering to roman */
+    list-style-type: lower-roman;
+}
+
+ul {
+    list-style-type: square;
+    color: blueviolet;
+    /* Without setting position to inside -> only text will go to center and points will remain at the left */
+    list-style-position: inside;
+    text-align: center;
+
+    list-style-image: url("images/blue\ bullet\ point.png");
+    /* outside is by default */
+    list-style: square inside url("images/blue\ bullet\ point.png");
+}
+
+/* odd even can also pass */
+ul li:nth-child(2) {
+    color: brown;
+}
+
+/* Changes the bullet point setting */
+ul ::marker {
+    color: brown;
+    font-family: fantasy;
+    /* change bullet point to the content */
+    content: "J2 >> ";
+}
+
+/* FLOATING LECTURE */
+
+.block {
+    width: 10vw;
+    height: 10vw;
+    background-color: black;
+    color: aliceblue;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.left {
+    /* Float makes div block just left to the paragraph written, just like for images */
+    float: left;
+    margin-right: 1rem;
+}
+
+.right {
+    float: right;
+    margin-left: 1rem;
+}
+
+/* clear makes next para to go from left side. not to wrap around for div used */
+.clear {
+    clear: both;
+}
+
+/* For Section */
+.floating {
+    background-color: bisque;
+    border: 1px solid #333;
+    padding: 1rem;
+    /* Overflow makes the box automatically including div and paragraph 
+        CHECK WITH OR WITHOUT THAT FOR BETTER UNDERSTANDING
+    DONT USE THAT*/
+    /* overflow: auto; */
+    /* USE DISPLAY */
+    display: flow-root;
+}
+
+/* COLUMNS LECTURE */
+
+.column {
+    /* column-count: 4; */
+
+    /* It will adjust automatically, if size matches, make columns 2 or 3 or 4 */
+    /* column-width: 250px; */
+    columns: 4 250px;
+    column-rule: 1px solid #333;
+}
+
+.column p {
+    margin-top: 0;
+}
+
+.column h2 {
+    background-color: #333;
+    color: aliceblue;
+    margin-top: 0;
+    padding: 1rem;
+    /* Avoid breaking inside means thoda sa black part dusre column me na aae */
+    break-inside: avoid;
+    /* Heading ko column ke sath rkh rha h. Jiske karan, jb 1 column ho rha h toh yeh screen me shrink ho rha h. Just Avoid This */
+    /* break-before: column; */
+}
+
+.column .quote {
+    /* column p has more specificity than quote so no change happen. So we have to give quote more specificity so we write column quote*/
+    margin-top: 2rem;
+    font-size: 3rem;
+    color: #333;
+    text-align: center;
+    column-span: all;
+}
+
+.nowrap {
+    /* When size of screen changes - Jayant Baid will go hand in hand no breaks in between */
+    white-space: nowrap;
+}
+
+/* POSITION LECTURE */
+/* position : absolute relative fixed sticky*/
+/* Fixed means that the image/box will be there for all time even when you scroll */
+/* Relative means it is relative to its parent, it can be the display corner or some other box on screen */
+/* Sticky means it sticks to the page untill you scroll a large 
+FOR EXAMPLE: 
+position:sticky;
+top=0;
+when box just touches the top end of screen, it sticks for couple of seconds untill you scroll it off.
+*/
+/* z-index = 0 or 1 */
+/* 0 is by default */
+/* Let say we have 2 boxes, one(green) overlap the other(blue)  if we want to interchange the overlap and don't want to change the class peference in css, we can use z-index 
+z-index=1; makes the interchange happen possible
+*/
+
+/* 
+html{
+    scroll-behavior: smooth;
+} 
+When you click a link point to same page section, it will goes to that section just like we are scrolling and not just got there, Means shows some kind of animations
+
+*/

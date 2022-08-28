@@ -1,0 +1,117 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&display=swap'); */
+
+/* EXTERNAL css */
+/* p is selector 
+color, font-size are property
+values are property value
+declaration is property and property value together*/
+/* p {
+    font-size: 25px;
+    color: red;
+} */
+
+/* this covers the whole page every changes done here will applicable to all over the page */
+/* This is used for CSS RESET which is covered later on. This is used only in that case otherwise don't use this */
+/* 
+Universal Selector selects everything
+* {
+    background-color: aquamarine;
+    font-family: cursive;
+} 
+
+*/
+
+body {
+    /* font-size, bgcolor etc gets inherited by others which is inside the body */
+    /* 
+    font-size: 22px; 
+    */
+    /* Border is not inherited by other attributes */
+    /*     
+    border: 2px solid black;
+    border-radius: 20px;
+     */
+
+    font-size: 1rem;
+    /* 1rem means value is same as that of root(default size of browser)
+    2rem means twice the default size means 2*16px
+    */
+
+    min-height: 100vh;
+}
+
+h1,
+h2 {
+    color: blue;
+    border: 2px dashed red;
+    width: 50%;
+    padding: 1rem;
+    margin: 1rem;
+    /* Outline is the outline for border */
+    outline: 3px solid purple;
+    /* offset adds margin in between of border and outline. Value can be +ve for going outwars and -ve for going inwards*/
+    outline-offset: 5px;
+}
+
+p {
+    /* font-family: 'Oleo Script Swash Caps', cursive; */
+    color: purple;
+    /* 
+    color: rgba(0, 0, 0, 0.3);
+    rgb with alpha (red,green,blue, opacity)
+    */
+}
+
+/* This means that go to span which is under p. 
+instead of using this use class*/
+/* p span {
+    text-transform: uppercase;
+    background-color: gold;
+} */
+/* this makes css much more organise */
+.highlight {
+    text-transform: uppercase;
+    background-color: gold;
+}
+
+/* class and ids will get higher priority even if it writes in bottom or in top */
+/* ID will get more priority then class */
+.gray {
+    color: gray;
+    text-decoration: cadetblue underline;
+    /* Every word's first letter gerts caps */
+    text-transform: capitalize;
+    /* Justify makes a complete box to look nice  */
+    text-align: justify;
+    /* Gives indentation, gives space in the left side of first line */
+    text-indent: 10rem;
+    /* Changes height b/w above line and bottom line, means height b/w 2 lines*/
+    /* is default in rem and default height is 1.2 */
+    line-height: 1.4;
+    /* adds spacing b/w letters */
+    /* 
+    letter-spacing: 0.1rem; 
+    */
+    /* Similary have word-spacing:0.1rem; */
+
+    font-weight: bold;
+    /* oblique gives more emphasis than italic */
+    font-style: oblique;
+}
+
+#second {
+    font-style: italic;
+    font-weight: bold;
+    color: red;
+}
+
+/* Dont use absolute value for font-size like 32px 
+USE relative font-size like smaller larger etc
+*/
+
+/* 
+when Content is less int he body then body will cover that part BUT if we want body to cover whole page then use
+body{
+    min-height:100vh;
+} 
+ */

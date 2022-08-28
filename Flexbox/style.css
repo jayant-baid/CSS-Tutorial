@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    min-height: 400px;
+    margin-inline: auto;
+    border: 1px solid #333;
+    display: flex;
+    /* flex-start give no change but when we write flex-end full box shift to right  */
+    /* end goes to the the end, center make the flex at centre */
+    /* flex-start, flex-end, center */
+    /* justify-content: center; */
+    /* Also have space-around, space-between, space-evenly */
+    /* AROUND: space is all around but start and end spacing is little less */
+    /* BETWEEN: No space the start and end, but in between is all nicely spaced */
+    /* EVENLY: Every space is equally given */
+    justify-content: center;
+    /* gap gives gap b/w every flex box  */
+    gap: 1rem;
+    /* FLEX-START: all boxes will be at the top */
+    /* FLEX-END: all boxes will go at bottom */
+    /* CENTER: all boxes will go at center */
+    align-items: center;
+    /* FLEX-DIRECTION: row(default), row-reverse(Reverse the flex boxes, We can see this by giving them no's), column(All boxes will come in one column), column-reverse(No's of column boxes will be reversed) */
+    flex-direction: row;
+    /* When the screen size changes, flex will automatically changes it width, and instead all all in one row, its gets divided */
+
+    /* wrap nowrap wrap-reverse */
+    flex-wrap: wrap;
+
+    /* COMBINING DIRECTION AND WRAP */
+    /* flex-flow: row wrap; */
+    /* DIRECTION WRAP  */
+    /*  Aligns a flex container’s lines within the flex container when there is extra space in the cross-axis, similar to how 'justify-content' aligns individual items within the main-axis.*/
+    /* 2 flex rows ke beech me kam distance hoga */
+    /* Same Values: flex-start, flex-end, center, space-around, space-between, space-evenly */
+    align-content: center;
+}
+
+.box {
+    /* min-width: 100px; */
+    height: 100px;
+    background-color: #000;
+    color: #fff;
+    font-size: 2rem;
+    padding: 0.5rem;
+
+    display: flex;
+    /* We can say that it become a individual flex container */
+    justify-content: center;
+    align-items: center;
+    /* After writing above lines, the no's gets in center */
+    /* FLEX-BASIS: initial main size/width of a flex item */
+    flex-basis: 100px;
+    /* Grow all grids to fill the screen/box size */
+    /* 1 means to fully cover the box */
+    /* 0 means no grow, means it kept in original size */
+    flex-grow: 1;
+
+    /* We can use this also */
+    /* flex: 1 1 100px; */
+    /* Grow , Shrink, basis */
+    /* Shrinkcmeans shrink that box kind of  */
+}
+
+.box:nth-child(2) {
+    /* first grow both boxes than give additional space twice to box 2 than box 1 */
+    /* flex-grow: 2; */
+    flex: 0 2 100px;
+
+    /* Location kind of thing 
+    -1 means go complete left side
+    0 means original position
+    1 or higher means go to rightest most position*/
+    order: 1;
+
+    /* Another property you can apply to individual items is:= align-self : This property accepts the same values as align-items and its value for the specific item. */
+
+    /* align-content: to set how multiple lines are spaced apart from each other 
+    This can be confusing, but align-content determines the spacing between lines, while align-items determines how the items as a whole are aligned within the container. When there is only one line, align-content has no effect.*/
+
+    /* https://flexboxfroggy.com/ 
+    play this for more understanding*/
+}
