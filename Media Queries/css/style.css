@@ -1,0 +1,130 @@
+/* MEDIA QUERIES allows us to modify our site and is the key to responsive design */
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+/* || RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* || GENERAL STYLES */
+body {
+    font: 1.5rem "Nunito", sans-serif;
+    min-height: 100vh;
+
+    background-color: #475569;
+    /*                    center to away */
+    background-image: radial-gradient(whitesmoke, #475569);
+    display: flex;
+    flex-direction: column;
+}
+
+header,
+nav,
+main,
+footer {
+    display: grid;
+    place-content: center;
+    /* Instead of writing text-align in header and width in nav use this */
+    grid-template-columns: 100%;
+    text-align: center;
+    /* Till this */
+}
+
+header,
+footer {
+    position: sticky;
+    background-color: #1E293B;
+    color: whitesmoke;
+}
+
+header {
+    top: 0;
+    /* text-align: center; */
+}
+
+nav {
+    background-color: aliceblue;
+    color: black;
+    padding: 0.5rem;
+    border-bottom: 2px solid #333;
+    /* width: 100vw; */
+}
+
+main {
+    flex-grow: 1;
+}
+
+footer {
+    bottom: 0;
+}
+
+/* 
+Syntax: 
+@media media type and (condition: breakpoint) {
+    CSS RULES
+} */
+/* We can use different Conditions:- */
+/*                 orientation: landscape */
+/*                 min-aspect-ratio: 16/9 */
+/*                 min-aspect-ratio: 7/4 */
+/* @media screen and (min-width: 481px) {
+    
+} */
+
+/* || SMALL */
+@media screen and (min-width: 576px) {
+    body {
+        background-color: green;
+        background-image: radial-gradient(purple, steelblue);
+    }
+
+    /* Lets MAKE NAV DISAPPEAR */
+    nav {
+        display: none;
+    }
+}
+
+/* || MEDIUM */
+@media screen and (min-width: 768px) {
+    body {
+        background-color: gold;
+        background-image: radial-gradient(purple, gold);
+    }
+}
+
+/* || LARGE */
+@media screen and (min-width: 992px) {
+    body {
+        background-color: firebrick;
+        background-image: radial-gradient(purple, firebrick);
+    }
+}
+
+/* || XL */
+@media screen and (min-width: 1281px) {
+    body {
+        background-color: rebeccapurple;
+        background-image: radial-gradient(gold, rebeccapurple);
+    }
+}
+
+/* || MOBILE DEVICE LANDSCAPE */
+
+/* We thought of using orientation but we want to be more specific here so, min-aspect-ratio:7/4 which is noticably taller than it is wide */
+@media screen and (max-height: 425px) and (min-aspect-ratio: 7/4) {
+    body {
+        background-color: dodgerblue;
+        background-image: radial-gradient(gold, dodgerblue);
+    }
+
+    h1,
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    nav {
+        display: none;
+    }
+}

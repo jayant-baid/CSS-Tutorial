@@ -1,0 +1,144 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+/* Begin Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* This is written to make img block element and remove little bit of space when not write */
+/* Kind of similar to * which is for all, this is only for img */
+img {
+    display: block;
+}
+
+/* End Reset */
+
+body {
+    font-family: "Nunito", sans-serif;
+    min-height: 100vh;
+}
+
+.example {
+    margin: 1rem;
+    padding-left: 20px;
+    border: 1px solid red;
+}
+
+.example img {
+    width: 25%;
+    height: auto;
+}
+
+.hero {
+    border-bottom: 2px solid black;
+    padding: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 4rem;
+
+    background-color: rgb(251, 210, 156);
+
+    /* 2 dots to do out of css folder */
+    /* It covers all over. because the picture just keeps on repeating from left right to get it cover all over */
+
+    /* background-image: url('../images/pat2-transparency.png'); */
+
+    /* To Not to Repeat image or not to cover all over and just add the same size picture */
+    /* no-repeat: just show the actual size image */
+    /* repeat-y: just repeat itself all over y-axis */
+    /* repeat-x: just repeat itself all over x-axis */
+    /* background-repeat: no-repeat; */
+    /* 
+    background-image: url('../images/map-2176x1451-resize.png'); 
+    */
+
+    /* Linear gradient look for background image */
+    /* We can add multiple colors to make more gradients */
+    /* By DEFAULT, it is going from top to bottom (to-bottom) */
+    /* BUT 
+    for to go from right to left
+                                                    FROM      TO    COLOR
+        background-image: linear-gradient(to left, steelblue, purple);
+    left to right
+        background-image: linear-gradient(to right, steelblue, purple);
+    bottom to top
+        background-image: linear-gradient(to top, steelblue, purple);
+    */
+    background-image: linear-gradient(steelblue, purple);
+
+    /* We can also add multiple images for background (one on the other) */
+    /*                          TOP                         BOTTOM                  IMAGES
+    background-image: url(../images/bubbles.png), linear-gradient(steelblue, purple);
+     */
+    /* SINCE we have 2 background-image, so we need to specify 2 values for background-size and background-position (when we write only 1 postion value otherwise need to write 4 values) */
+
+    /* Specifies the size of the background images. */
+    background-size: cover;
+
+    background-position: top right;
+    /*                 x-axis  y-axis */
+    /* also we can apply one value also 
+    top right left bottom center */
+
+    /* BY DEFAULT */
+    background-repeat: repeat;
+}
+
+.h1 {
+    font-size: 500%;
+    color: aliceblue;
+    text-shadow: 2px 2px 5px #000;
+    /*       x-axis y-axis blur-distance color  */
+
+    background-color: hsla(0, 0%, 0%, 0.411);
+    width: min-content;
+    padding: 0.25rem;
+    border-radius: 10px;
+}
+
+
+.profile-img-picture {
+    width: 35%;
+}
+
+.profile-img-picture img {
+    width: 100%;
+    height: auto;
+    min-width: 100px;
+    border: 5px double #333;
+    border-radius: 50%;
+}
+
+/* Utility Classes Start */
+.nowrap {
+    white-space: nowrap;
+}
+
+.offscreen {
+    position: absolute;
+    left: -1000px;
+}
+
+/* Utility Classes End */
+
+.clip {
+    font-weight: 800;
+    font-size: 18rem;
+    text-align: center;
+    text-transform: uppercase;
+    background-image: url(../images/scenic-2200x1331.png);
+    background-size: 100%;
+
+
+    /* We use webkit because google and some other browser don't support background-clip, therefore we use webkit to make to supportable */
+    -webkit-background-clip: text;
+    /* We add this to make it compatible for firefox also */
+    background-clip: text;
+    /* color: hsla(0, 0%, 0%, 0.018); */
+
+    /* if we don't any other colors opacity, we can add transparent */
+    color: transparent;
+}
