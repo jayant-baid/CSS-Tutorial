@@ -1,0 +1,233 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+/*
+PSEUDO SELECTOR INCLUDES BOTH PSEUDO CLASS & PSEUDO ELEMENTS
+Pseudo Class is a selector that selects elements that are in a specific state like hover, focus, visited, link, etc.
+Pseudo Element is similar but they act like we've added a new html element inot your document. PSEUDO ELEMENTS USES 2 COLONS ::
+*/
+
+/* || RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* || UTILITY STYLES */
+.nowrap {
+    white-space: nowrap;
+}
+
+
+/* || GENERAL STYLES */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font: 1.5rem "Nunito", sans-serif;
+    min-height: 100vh;
+    background-color: #475569;
+    background-image: radial-gradient(whitesmoke, #475569);
+    display: flex;
+    flex-direction: column;
+}
+
+/* CHANGES DONE FOR PSEUDO CLASSES*/
+
+/* :is(header,footer)  --> specificity (0,0,1)*/
+/* :where(header,footer)  --> specificity (0,0,0) , we can use this for some cases*/
+header,
+footer {
+    position: sticky;
+    background-color: #1e293b;
+    color: whitesmoke;
+    text-align: center;
+}
+
+header {
+    top: 0;
+}
+
+nav {
+    background-color: #fff;
+    padding: 0.5rem;
+    border-bottom: 2px solid #000;
+    font-weight: bolder;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* CHANGES DONE FOR PSEUDO CLASSES*/
+
+/* Any Link pseudo class selects both link and visited pseudo class*/
+/* nav a:link,
+nav a:visited  */
+nav a:any-link {
+    color: #000;
+}
+
+/* CHANGES DONE FOR PSEUDO CLASSES*/
+
+/* Instead of writing differently, we can club all this in a one to get a better readability */
+
+/* is: g oing to adopt whatever has the highest specificity within its parentheses*/
+
+/* nav a:hover,
+nav a:focus  */
+nav:is(a:hover, a:focus) {
+
+    color: #2c4a7a;
+}
+
+/* CHANGES DONE FOR PSEUDO CLASSES
+
+A link becomes active when you click on it.
+NOTE: :active MUST come after :hover (if present) in the CSS definition in order to be effective!
+ */
+nav:active {
+    color: red;
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+footer {
+    bottom: 0;
+}
+
+/* || Profile Card */
+.card {
+    scroll-margin-top: 8rem;
+    width: min(100%, 350px);
+    background-color: #cbd5e1;
+    border: 2px solid #000;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* To make <p> code at centre  */
+    text-align: center;
+}
+
+/* CHANGES DONE FOR PSEUDO CLASSES*/
+
+/* Whoever is selecter/ target of our selection,that gets rebeccapurple color as border */
+/* When we click jayant, anmol or himanshu links, the profile card gets border of rebeccapurple color */
+.card:target {
+    border: 2px solid rebeccapurple;
+    /* background-color: aqua; */
+}
+
+.card figure {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.card img {
+    border-bottom: 2px solid #333;
+    border-radius: 15px 15px 0px 0px;
+}
+
+/* CHANGES DONE FOR PSEUDO CLASSES*/
+
+/* I'm selecting any image with alt attribute
+Those who have alt attribute in <img> will do changes
+
+.card img[alt] {
+    border-radius: 50%;
+    border: 5px double rebeccapurple;
+} 
+
+we have :not class which check those who have not alt attribute in that */
+.card img:not([alt]) {
+    border-radius: 50%;
+    border: 5px double rebeccapurple;
+}
+
+.card figcaption {
+    font-weight: bolder;
+    font-size: 2rem;
+    margin: 1rem;
+    text-align: center;
+}
+
+/* CHANGES DONE FOR PSEUDO ELEMENTS */
+
+/* ::after --> figcaption ke baad kya aaega */
+/* Yeh Sb profile cards me daal de rha h */
+.card figcaption::after {
+    /* After will have content */
+    /* We can't select that for copy and all that stuff in site */
+    content: ' 🔥';
+    display: block;
+}
+
+
+/* IF WE REMOVE COMMENTS, THIS WILL BECAME THE FIRST LETTER OF FIGCAPTION */
+/* 
+.card figcaption::before {
+    Before will have content 
+    We can't select that for copy and all that stuff in site 
+    content: '✨';
+    display: block;
+} 
+*/
+
+/* Make First Letter of Figcaption larger */
+.card figcaption::first-letter {
+    font-size: 3rem;
+}
+
+/*  Make First Line of Figcaption larger
+.card figcaption::first-line {
+    font-size: 3rem;
+} 
+*/
+
+.card p {
+    position: relative;
+}
+
+/* 
+This adds quotes to DOB and extra quotes to <q>
+
+.card p::after {
+    content: close-quote;  --> ggf" 
+    font-size: 2.5rem;
+    position: absolute;
+    top: -0.25rem;
+    right: -0.9rem;
+} 
+*/
+
+/* We can style quotes also separately */
+q::before {
+    content: open-quote;
+    /* --> "gfv */
+    font-size: 2.5rem;
+    position: absolute;
+    top: -0.25rem;
+    left: -0.9rem;
+}
+
+q::after {
+    content: close-quote;
+    /* --> ggf" */
+    font-size: 2.5rem;
+    position: absolute;
+    top: -0.25rem;
+    right: -0.9rem;
+}
