@@ -1,0 +1,190 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 1.5rem;
+    font-family: 'Nunito', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
+    background-color: antiquewhite;
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+div {
+    width: 200px;
+    height: 200px;
+    border: 1px solid #000;
+    display: grid;
+    place-content: center;
+}
+
+/* ONLY LATEST tranform ATTRIBUTE WILL SHOW IN DISPLAY, UPAR WALE tranform ATTRIBUTE KI VALUES NHI CHALEGI */
+
+div:first-child {
+    background-color: orangered;
+    /* Percent se woh original div size se 50% X direction me chla jaega. 50% :- move it halfway over of the width of div not of the page or the element that it's within*/
+    transform: translateX(50%);
+
+    /* It's rotating from TOP Backwards. It's like Pizza BOX, bootom part is coming towards us and top part is moving away from us*/
+    /* TOP TO BOTTOM */
+    transform: rotateX(45deg);
+    /* AT 90deg , it disappears */
+
+    /* Scale in X Direction --> make it expand in Horizontal direction */
+    transform: scaleX(160%);
+
+    /* Specifies a skew transformation along the X axis by the given angle. */
+    transform: skewX(-10deg);
+
+}
+
+div:nth-child(2) {
+    background-color: whitesmoke;
+    transform: translateY(2rem);
+
+    transform: rotateY(45deg);
+    /* Left to Right */
+
+    /* Scale in Y Direction --> make it expand in Vertical direction */
+    transform: scaleY(120%);
+
+    transform: skewY(10deg);
+}
+
+div:last-child {
+    background-color: green;
+    /*                       X      Y  */
+    transform: translate(100%, 3rem);
+
+    /* Rotation in clockwise direction, rotate full box, not only emoji */
+    transform: rotateZ(60deg);
+    /* OR
+    transform: rotate(60deg); */
+
+    /* Specifies a 2D scale operation by the [sx,sy] scaling vector described by the 2 parameters. If the second parameter is not provided, it is takes a value equal to the first. */
+    transform: scale(69%, 69%);
+
+    /* Specifies a skew transformation along the X and Y axes */
+    /* transform: skew(-10deg, -10deg); */
+}
+
+div:hover {
+    /* When we hover, bg-color changes to blueviolet and it takes 2 sec to do that, which shows an animation*/
+    background-color: blueviolet;
+
+    /* transition-property: background-color, transform; */
+
+    /* 1s for background-color & 3s for transform */
+
+    /* transition-duration: 1s, 3s; */
+
+    /* Defines when the transition will start. It allows a transition to begin execution some period of time from when it is applied. 
+    Means, Starting ke 0.3sec ruk kar fir hi transition hoga */
+
+    /* 0.3s for both background-color & transform */
+
+    /* transition-delay: 0.3s; */
+
+    /* Apply to all properties */
+    /* property name | duration | easing function | delay */
+    /* transition-timing-function: ease; */
+    /* ease: by default
+    linear, etc*/
+    transition: all 2s ease-in-out 0.5s;
+
+    /* Apply to 1 property
+    property name | duration
+    transition: margin-right 4s;
+
+    property name | duration | delay
+    transition: margin-right 4s 1s;
+
+    property name | duration | easing function
+    transition: margin-right 4s ease-in-out;
+
+     property name | duration | easing function | delay
+    transition: margin-right 4s ease-in-out 1s;
+
+     Apply to 2 properties
+    transition: margin-right 4s, color 1s;
+
+    Apply to all changed properties 
+    transition: all 0.5s ease-out;
+
+       Global values 
+    transition: inherit;
+    transition: initial;
+    transition: revert;
+    transition: revert-layer;
+    transition: unset;
+
+    */
+
+}
+
+div:last-child:hover {
+    transform: rotate(180deg);
+}
+
+.animate {
+    /* Defines a list of animations that apply. Each name is used to select the keyframe at-rule that provides the property values for the animation. */
+    animation-name: slide;
+
+    animation-duration: 5s;
+    animation-timing-function: ease-in-out;
+    animation-delay: 1s;
+    /* 5 baar chalega animation */
+    animation-iteration-count: 2;
+    /* Defines whether or not the animation should play in reverse on alternate cycles. */
+    /* BY DEFAULT: normal */
+    animation-direction: alternate;
+    /* alternate: pehle iteration me normal jese values di h wese jaega fir reverse direction me then normal, then reverse and so on */
+
+    /* Defines what values are applied by the animation outside the time it is executing. 
+    Means animation khtm hone ke baad konsa color rhega*/
+
+    /* FORWARDS, BOTH, BACKWARDS ->BY DEFAULT */
+    animation-fill-mode: forwards;
+
+    /* ALL IN ONE LINE */
+    animation: 5s ease-in-out 1s 2 normal forwards slide;
+}
+
+@keyframes slide {
+
+    /* At the begining */
+    0% {
+        transform: translateX(0);
+    }
+
+    33% {
+        /* NO COMMA */
+        transform: translateX(300px) rotate(180deg);
+    }
+
+    66% {
+        transform: translateX(-300px) rotate(-180deg);
+    }
+
+    100% {
+        transform: translateX(0);
+        background-color: rebeccapurple;
+    }
+}
